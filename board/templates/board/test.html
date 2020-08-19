@@ -1,0 +1,130 @@
+{% extends 'board/base.html' %}
+{% block content %}
+<div class="col-md-12">
+    <div id="result_log"></div>
+</div>
+
+<div class="col-md-12">
+    <div class="page-header">
+        <h1>
+            <span class="printable">1000번 - </span><span id="problem_title">A+B</span>
+            {% for prob in problem %}
+            {{ prob }}
+            {% endfor %}
+        </h1>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table" id="problem-info">
+            <thead>
+                <tr>
+                    <th style="width:16%;">시간 제한</th>
+                    <th style="width:16%;">메모리 제한</th>
+                    <th style="width:17%;">제출</th>
+                    <th style="width:17%;">정답</th>
+                    <th style="width:17%;">맞은 사람</th>
+                    <th style="width:17%;">정답 비율</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2 초</td>
+                    <td>128 MB</td>
+                    <td>307192</td>
+                    <td>132221</td>
+                    <td>96992</td>
+                    <td>44.292%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-md-12">
+    <section id="description">
+        <div class="headline">
+            <h2>문제</h2>
+        </div>
+        <div id="problem_description" style="font-size:medium; line-height:30px;">
+            <p>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.</p>
+        </div>
+    </section>
+</div>
+<div class="col-md-12">
+    <section id="input">
+        <div class="headline">
+            <h2>입력</h2>
+        </div>
+        <div id="problem_input" style="font-size:medium; line-height:30px;">
+            <p>첫째 줄에 A와 B가 주어진다. (0 &lt; A, B &lt; 10)</p>
+        </div>
+    </section>
+</div>
+<div class="col-md-12">
+    <section id="output">
+        <div class="headline">
+            <h2>출력</h2>
+        </div>
+        <div id="problem_output" style="font-size:medium; line-height:30px;">
+            <p>첫째 줄에 A+B를 출력한다.</p>
+        </div>
+    </section>
+</div>
+<div class="col-md-12">
+    <section id="limit" style="display:none;">
+        <div class="headline">
+            <h2>제한</h2>
+        </div>
+        <div id="problem_limit" style="font-size:medium; line-height:30px;">
+        </div>
+    </section>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <section id="sampleinput1">
+                <div class="headline">
+                    <h2>예제 입력 1
+                        <button class="btn btn-link copy-button" data-clipboard-target="#sample-input-1" style="padding: 0px;" type="button">복사</button>
+                    </h2>
+                </div>
+                <pre class="sampledata" id="sample-input-1">1 2
+                </pre>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section id="sampleoutput1">
+                <div class="headline">
+                    <h2>예제 출력 1
+                        <button class="btn btn-link copy-button" data-clipboard-target="#sample-output-1" style="padding: 0px;" type="button">복사</button>
+                    </h2>
+                </div>
+                <pre class="sampledata" id="sample-output-1">3
+                </pre>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <section id="problem_association">
+        <div class="headline">
+            <h2>비슷한 문제</h2>
+        </div>
+        <ul>
+            <li><a href="/problem/1001">1001번. A-B</a></li>
+            <li><a href="/problem/1008">1008번. A/B</a></li>
+            <li><a href="/problem/2558">2558번. A+B - 2</a></li>
+            <li><a href="/problem/10950">10950번. A+B - 3</a></li>
+            <li><a href="/problem/10951">10951번. A+B - 4</a></li>
+            <li><a href="/problem/10952">10952번. A+B - 5</a></li>
+            <li><a href="/problem/10953">10953번. A+B - 6</a></li>
+            <li><a href="/problem/10998">10998번. A×B</a></li>
+            <li><a href="/problem/11021">11021번. A+B - 7</a></li>
+            <li><a href="/problem/11022">11022번. A+B - 8</a></li>
+            <li><a href="/problem/15740">15740번. A+B - 9</a></li>
+            <li><a href="/problem/15792">15792번. A/B - 2</a></li>
+        </ul>
+    </section>
+</div>
+
+{% endblock %}
