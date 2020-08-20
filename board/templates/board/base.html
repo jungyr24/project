@@ -26,16 +26,15 @@
     <div style="width: 50%">
         <h1><a href="/">CoTeWithMe!!!</a></h1>
         <h1>테스트 계정 : test/testtessttest</h1>
+
     </div>
-
-
 </div>
 <div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="text" value="문제 번호를 입력하세요" onfocus="this.value=''">
-        <input type="submit" value="확인" action="/prob">
+        <button type="submit">확인</button>
     </form>
 </div>
 
