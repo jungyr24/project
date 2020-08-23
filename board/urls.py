@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('prob-num/', views.get_prob_number, name='get_prob_number'),
 
-    path('tab/', views.tab_page, name='tab_page'),
+    path('tab-page/', views.tab_page, name='tab_page'),
 
 
 

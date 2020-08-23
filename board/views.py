@@ -13,7 +13,7 @@ def main_page(request):
 
 
 def tab_page(request):
-    return render(request, 'board/tab.html', {})
+    return render(request, 'board/tab-page.html', {})
 
 
 def get_prob_number(request):
