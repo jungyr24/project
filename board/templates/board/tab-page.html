@@ -1,31 +1,136 @@
 {% extends 'board/base.html' %}
 {% block content %}
-<script>
-    function_add_tab {
-        $('#btnAdd').click(function (e) {
-        var nextTab = $('#tabs li').size()+1;
+<div class="main">
+<!--    디폴트메뉴-->
+    {% for num in num_list %}
+        <input class="tab_input" id="tab1" type="radio" name="tabs" checked>
+        <label class="tab_label" for="tab1">{{ num }}</label>
+    {% endfor %}
 
-        // create the tab
-        $('<li><a href="#tab'+nextTab+'" data-toggle="tab">Tab '+nextTab+'</a></li>').appendTo('#tabs');
+   
+    <section class="tab_section" id="content1">
 
-        // create the tab content
-        $('<div class="tab-pane" id="tab'+nextTab+'">tab' +nextTab+' content</div>').appendTo('.tab-content');
 
-        // make the new tab active
-        $('#tabs a:last').tab('show');
-    });
-    https://www.it-swarm.dev/ko/javascript/bootstrap%EC%97%90%EC%84%9C-%EB%8F%99%EC%A0%81%EC%9C%BC%EB%A1%9C-%ED%83%AD-%EC%B6%94%EA%B0%80-%EC%A0%9C%EA%B1%B0%EC%83%9D%EC%84%B1-%EB%90%9C-%ED%83%AD%EC%9D%84-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A9%EB%8B%88%EB%8B%A4/1047536595/
-}
-</script>
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#contact_01" data-toggle="tab">Joe Smith</a><span>x</span></li>
-        <li><a href="#contact_02" data-toggle="tab">Molly Lewis</a><span>x</span> </li>
-        <li><a href="#" class="add-contact" data-toggle="tab">+ Add Contact</a></li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane active" id="contact_01">Contact Form: Joe Smith</div>
-        <div class="tab-pane" id="contact_02">Contact Form: Molly Lewis</div>
-    </div>
+        <div class="col-md-12">
+            <div id="result_log"></div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>
+                    <span class="printable">{{ problem.문제번호 }} - </span>
+                    <span id="problem_title">{{ problem.문제제목 }}</span>
+
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table" id="problem-info">
+                    <thead>
+                        <tr>
+                            <th style="width:16%;">시간 제한</th>
+                            <th style="width:16%;">메모리 제한</th>
+                            <th style="width:17%;">제출</th>
+                            <th style="width:17%;">정답</th>
+                            <th style="width:17%;">맞은 사람</th>
+                            <th style="width:17%;">정답 비율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ problem.시간제한 }}</td>
+                            <td>{{ problem.메모리제한 }}</td>
+                            <td>{{ problem.제출 }}</td>
+                            <td>{{ problem.정답 }}</td>
+                            <td>{{ problem.맞은사람 }}</td>
+                            <td>{{ problem.정답비율 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <section id="description">
+                <div class="headline">
+                    <h2>문제</h2>
+                </div>
+                <div id="problem_description" style="font-size:medium; line-height:30px;">
+                    <p>{{ problem.문제 }}</p>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-12">
+            <section id="input">
+                <div class="headline">
+                    <h2>입력</h2>
+                </div>
+                <div id="problem_input" style="font-size:medium; line-height:30px;">
+                    <p>{{ problem.입력 }}</p>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-12">
+            <section id="output">
+                <div class="headline">
+                    <h2>출력</h2>
+                </div>
+                <div id="problem_output" style="font-size:medium; line-height:30px;">
+                    <p>{{ problem.출력 }}</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <section id="sampleinput1">
+                        <div class="headline">
+                            <h2>입력 예시</h2>
+                        </div>
+
+                        <pre class="sampledata" id="sample-input-1">
+                            {% for prob in problem.입력예시 %}
+                                {{ prob }}
+                            {% endfor %}
+                        </pre>
+
+                    </section>
+                </div>
+                <div class="col-md-6">
+                    <section id="sampleoutput1">
+                        <div class="headline">
+                            <h2>출력 예시</h2>
+                        </div>
+                        <pre class="sampledata" id="sample-output-1">
+                             {% for prob in problem.출력예시 %}
+                                {{ prob }}
+                            {% endfor %}
+                        </pre>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <section id="problem_association">
+                <div class="headline">
+                    <h2>비슷한 문제</h2>
+                </div>
+                <ul>
+                     {% for prob in problem.비슷한문제 %}
+                        <li>
+                            {{ prob }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+
+
+    </section> <!-- endsection -->
+
+
 </div>
 {% endblock %}

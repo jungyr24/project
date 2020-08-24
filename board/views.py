@@ -13,12 +13,15 @@ def main_page(request):
 
 
 def tab_page(request):
+
     return render(request, 'board/tab-page.html', {})
 
 
 def get_prob_number(request):
+    num_list = [1000, 19572, 12021]
     if 'q' in request.GET:
         number = request.GET['q']
+
     else:
         message = 'plz enter the problem number'
         return HttpResponse(message)
@@ -73,4 +76,7 @@ def get_prob_number(request):
         problem['비슷한문제'] = similar_problem
 
 
-    return render(request, 'board/test.html', {'problem': problem})
+    return render(request, 'board/test.html', {
+        'problem': problem,
+        'num_list': num_list
+    })
